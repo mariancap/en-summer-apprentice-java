@@ -8,25 +8,25 @@ import javax.naming.Name;
 @Table(name="VENUE")
 public class VENUE {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
 
-    @NotNull
+
     @Column ( name = "VenueID" )
-    private long VenueID;
+    private int VenueID;
 
-    @NotNull
+
     @Column ( name = "event_location" )
     private String event_location;
 
-    @NotNull
+
     @Column ( name = "venue_type" )
     private String venue_type;
 
-    @NotNull
-    @Column ( name = "capacity" )
-    private long capacity;
 
-    public VENUE(long venueID, String event_location, String venue_type, long capacity) {
+    @Column ( name = "capacity" )
+    private int capacity;
+
+    public VENUE(int venueID, String event_location, String venue_type, int capacity) {
         VenueID = venueID;
         this.event_location = event_location;
         this.venue_type = venue_type;
@@ -41,7 +41,7 @@ public class VENUE {
         return event_location;
     }
 
-    public long getVenueID() {
+    public int getVenueID() {
         return VenueID;
     }
 
@@ -49,11 +49,11 @@ public class VENUE {
         return venue_type;
     }
 
-    public long getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public void setVenueID(long venueID) {
+    public void setVenueID(int venueID) {
         VenueID = venueID;
     }
 
@@ -65,7 +65,7 @@ public class VENUE {
         this.venue_type = venue_type;
     }
 
-    public void setCapacity(long capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 }

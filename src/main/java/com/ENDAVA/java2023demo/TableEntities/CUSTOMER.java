@@ -6,39 +6,40 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Table(name = "CUSTOMER")
 public class CUSTOMER{
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long customerID;
-    @NotNull
-    @Column ( name = "customer_name" )
-    private String customerName;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int CustomerID;
 
-    @NotNull
+
+    @Column ( name = "customer_name" )
+    private String customer_name;
+
+
     @Column ( unique = true , name="email")
     private String email;
 
     public CUSTOMER() {
     }
 
-    public CUSTOMER(Long customerID, String customerName, String email) {
-        this.customerID = customerID;
-        this.customerName = customerName;
+    public CUSTOMER(int customerID, String customer_name, String email) {
+        CustomerID = customerID;
+        this.customer_name = customer_name;
         this.email = email;
     }
 
-    public Long getCustomerID() {
-        return customerID;
+    public int getCustomerID() {
+        return CustomerID;
     }
 
-    public void setCustomerID(Long customerID) {
-        this.customerID = customerID;
+    public void setCustomerID(int customerID) {
+        CustomerID = customerID;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCustomer_name() {
+        return customer_name;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
     }
 
     public String getEmail() {
@@ -48,6 +49,4 @@ public class CUSTOMER{
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }

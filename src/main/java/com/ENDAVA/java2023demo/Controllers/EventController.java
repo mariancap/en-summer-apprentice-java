@@ -1,9 +1,11 @@
 package com.ENDAVA.java2023demo.Controllers;
 
 
+import com.ENDAVA.java2023demo.DTOS.EventDTO;
 import com.ENDAVA.java2023demo.Servicies.EventService;
 import com.ENDAVA.java2023demo.TableEntities.EVENT;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +23,14 @@ public class EventController {
     }
 
     @GetMapping
-    public List<EVENT>getEvents()
+    public List<EventDTO>getEvents()
     {
         return eventService.getEvents();
+    }
+
+    @GetMapping("{id}")
+    public EventDTO eventDTO(@PathVariable("id") Integer id)
+    {
+       return eventService.getEvent(id);
     }
 }

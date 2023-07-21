@@ -1,11 +1,12 @@
 package com.ENDAVA.java2023demo.Interfaces;
 
-import com.ENDAVA.java2023demo.TableEntities.EVENT;
+import com.ENDAVA.java2023demo.DTOS.EventDTO;
 
 import java.util.List;
 
 public interface IEventService {
 
-    List <EVENT> getEvents();
+    List<EventDTO> getEvents();
 
+    public EventDTO getEvent(Integer id);
 }

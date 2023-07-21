@@ -5,8 +5,8 @@ import com.ENDAVA.java2023demo.TableEntities.ORDERS;
 
 import java.util.List;
 
-public interface IOrderService {
+public interface IOrdersService {
     List<ORDERS> getOrders();
-
     void createOrders(ORDERS orders);
+
 }

@@ -1,4 +1,5 @@
 package com.ENDAVA.java2023demo.TableEntities;
+import com.ENDAVA.java2023demo.DTOS.VenueDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -19,10 +20,12 @@ public class EVENT {
 
     @JoinColumn(name = "venue_id", nullable = false)
     @ManyToOne
+    @JsonBackReference
     private VENUE venue;
 
     @JoinColumn(name = "event_type_id", nullable = false)
     @ManyToOne
+    @JsonBackReference
     private EVENT_TYPE eventType;
 
     @Column ( name = "event_description" )
@@ -119,4 +122,6 @@ public class EVENT {
     public void setTicket_categories(List<TICKET_CATEGORY> ticket_categories) {
         this.ticket_categories = ticket_categories;
     }
+
+
 }

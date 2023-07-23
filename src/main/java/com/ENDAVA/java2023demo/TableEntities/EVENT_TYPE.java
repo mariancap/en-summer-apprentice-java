@@ -1,7 +1,9 @@
 package com.ENDAVA.java2023demo.TableEntities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,13 +20,42 @@ public class EVENT_TYPE {
     @Column (unique = true, name = "event_type_name" )
     private String event_type_name;
 
-    @OneToMany(mappedBy = "eventType")
-    private List<EVENT> events;
+    @OneToMany(mappedBy = "eventType", cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonManagedReference
+    private List<EVENT>events;
+
+
+    public int getEventTypeID() {
+        return EventTypeID;
+    }
+
+    public void setEventTypeID(int eventTypeID) {
+        EventTypeID = eventTypeID;
+    }
+
+    public String getEvent_type_name() {
+        return event_type_name;
+    }
+
+    public void setEvent_type_name(String event_type_name) {
+        this.event_type_name = event_type_name;
+    }
+
+    public List<EVENT> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<EVENT> events) {
+        this.events = events;
+    }
 
     public EVENT_TYPE(int event_TypeID, String event_Type_Name) {
         EventTypeID = event_TypeID;
         event_type_name = event_Type_Name;
+        this.events=new ArrayList<>();
     }
+
+
 
     public EVENT_TYPE() {
 

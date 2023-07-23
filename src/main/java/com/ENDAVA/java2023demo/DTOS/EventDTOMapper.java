@@ -13,7 +13,7 @@ public class EventDTOMapper implements Function<EVENT,EventDTO> {
     @Override
     public EventDTO apply(EVENT event) {
         return new EventDTO(event.getEventID(),
-                event.getVenue(),
+                event.getVenue().toVenueDTO(),
                 event.getEventType().getEvent_Type_Name(),
                 event.getEvent_description(),
                 event.getEvent_name(),

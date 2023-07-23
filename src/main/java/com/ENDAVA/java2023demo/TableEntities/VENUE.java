@@ -1,8 +1,10 @@
 package com.ENDAVA.java2023demo.TableEntities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
 import javax.naming.Name;
+import java.util.List;
 
 @Entity
 @Table(name="VENUE")
@@ -25,6 +27,7 @@ public class VENUE {
 
     @Column ( name = "capacity" )
     private int capacity;
+
 
     public VENUE(int venueID, String event_location, String venue_type, int capacity) {
         VenueID = venueID;

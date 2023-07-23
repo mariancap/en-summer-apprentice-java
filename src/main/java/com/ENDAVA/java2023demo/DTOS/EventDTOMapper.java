@@ -14,11 +14,12 @@ public class EventDTOMapper implements Function<EVENT,EventDTO> {
     public EventDTO apply(EVENT event) {
         return new EventDTO(event.getEventID(),
                 event.getVenue(),
-                event.getEventType(),
+                event.getEventType().getEvent_Type_Name(),
                 event.getEvent_description(),
                 event.getEvent_name(),
                 event.getData_start(),
-                event.getData_end());
+                event.getData_end(),
+                event.getTicket_categories());
 
 
     }

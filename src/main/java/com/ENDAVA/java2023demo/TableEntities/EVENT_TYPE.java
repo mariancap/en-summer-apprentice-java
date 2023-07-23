@@ -2,6 +2,8 @@ package com.ENDAVA.java2023demo.TableEntities;
 import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="EVENT_TYPE")
 public class EVENT_TYPE {
@@ -15,6 +17,9 @@ public class EVENT_TYPE {
 
     @Column (unique = true, name = "event_type_name" )
     private String event_type_name;
+
+    @OneToMany(mappedBy = "eventType")
+    private List<EVENT> events;
 
     public EVENT_TYPE(int event_TypeID, String event_Type_Name) {
         EventTypeID = event_TypeID;

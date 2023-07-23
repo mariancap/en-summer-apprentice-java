@@ -1,7 +1,11 @@
 package com.ENDAVA.java2023demo.TableEntities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="EVENT")
@@ -33,6 +37,10 @@ public class EVENT {
     @Column ( name = "data_end" )
     private Date data_end;
 
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonManagedReference
+    private List<TICKET_CATEGORY>ticket_categories;
+
     public EVENT(int eventID, VENUE venue, EVENT_TYPE eventType, String event_description, String event_name, Date data_start, Date data_end) {
         EventID = eventID;
         this.venue = venue;
@@ -41,6 +49,7 @@ public class EVENT {
         this.event_name = event_name;
         this.data_start = data_start;
         this.data_end = data_end;
+        this.ticket_categories=new ArrayList<>();
     }
 
     public EVENT() {
@@ -101,5 +110,13 @@ public class EVENT {
 
     public void setData_end(Date data_end) {
         this.data_end = data_end;
+    }
+
+    public List<TICKET_CATEGORY> getTicket_categories() {
+        return ticket_categories;
+    }
+
+    public void setTicket_categories(List<TICKET_CATEGORY> ticket_categories) {
+        this.ticket_categories = ticket_categories;
     }
 }

@@ -36,5 +36,11 @@ public class EventService implements IEventService {
                 .orElseThrow(()->new IllegalStateException(String.format("Customer with ID %s doesn't exist",id)));
     }
 
+//    public List<EventDTO> getEventsByVenueIdAndEventType(Integer venueId,String eventType)
+//    {
+//        return eventRepository.findEventsByVenueIdAndEventType(venueId,eventType)
+//                .stream().map(eventDTOMapper).collect(Collectors.toList());
+//    }
+
 
 }

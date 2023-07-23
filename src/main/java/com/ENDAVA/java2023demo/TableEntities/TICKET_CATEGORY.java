@@ -1,4 +1,5 @@
 package com.ENDAVA.java2023demo.TableEntities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
@@ -15,6 +16,7 @@ public class TICKET_CATEGORY {
 
     @JoinColumn(name = "event_id", nullable = false)
     @ManyToOne
+    @JsonBackReference
     private EVENT event;
 
 

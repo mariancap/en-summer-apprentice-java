@@ -32,10 +32,6 @@ public class CustomerController {
         customerService.createCustomer(customer);
     }
 
-//    @PutMapping(path="{id}")
-//    public void updateCustomer(@PathVariable int id,@RequestBody CUSTOMER customer)
-//    {
-//        customerService.updateCustomer(id,customer);
-//    }
+
 
 }

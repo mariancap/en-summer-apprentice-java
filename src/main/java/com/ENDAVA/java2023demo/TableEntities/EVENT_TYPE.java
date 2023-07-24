@@ -20,9 +20,7 @@ public class EVENT_TYPE {
     @Column (unique = true, name = "event_type_name" )
     private String event_type_name;
 
-    @OneToMany(mappedBy = "eventType", cascade = CascadeType.ALL,orphanRemoval = true)
-    @JsonManagedReference
-    private List<EVENT>events;
+
 
 
     public int getEventTypeID() {
@@ -41,18 +39,14 @@ public class EVENT_TYPE {
         this.event_type_name = event_type_name;
     }
 
-    public List<EVENT> getEvents() {
-        return events;
-    }
 
-    public void setEvents(List<EVENT> events) {
-        this.events = events;
-    }
+
+
 
     public EVENT_TYPE(int event_TypeID, String event_Type_Name) {
         EventTypeID = event_TypeID;
         event_type_name = event_Type_Name;
-        this.events=new ArrayList<>();
+
     }
 
 

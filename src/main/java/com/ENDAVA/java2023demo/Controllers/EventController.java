@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/events")
+@RequestMapping
 public class EventController {
 
     private final EventService eventService;
-    private final EventRepository eventRepository;
 
 
 
-    public EventController(EventService eventService, EventDTOMapper eventDTOMapper, EventRepository eventRepository) {
+
+    public EventController(EventService eventService) {
         this.eventService = eventService;
-        this.eventRepository = eventRepository;
+
     }
 
     @GetMapping
@@ -37,7 +37,7 @@ public class EventController {
     }
 
 
-    @GetMapping("/byVenue")
+    @GetMapping("/events")
     public List<EventDTO> getEventsByVenueIdAndEventType(@RequestParam int venueID, @RequestParam String eventType) {
         return eventService.getEventByVenueIdAndEventType(venueID,eventType);
     }

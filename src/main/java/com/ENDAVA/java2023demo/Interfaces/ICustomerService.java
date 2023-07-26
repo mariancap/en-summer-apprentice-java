@@ -11,4 +11,6 @@ public interface ICustomerService {
     void updateCustomer(Integer id,CUSTOMER customer);
     //void deleteCustomer(CUSTOMER customer);
 
+
+
 }

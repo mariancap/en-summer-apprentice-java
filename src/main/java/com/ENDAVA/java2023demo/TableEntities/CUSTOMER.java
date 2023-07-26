@@ -7,7 +7,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 public class CUSTOMER{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int CustomerID;
+    private int customerID;
 
 
     @Column ( name = "customer_name" )
@@ -21,17 +21,17 @@ public class CUSTOMER{
     }
 
     public CUSTOMER(int customerID, String customer_name, String email) {
-        CustomerID = customerID;
+        customerID = customerID;
         this.customer_name = customer_name;
         this.email = email;
     }
 
     public int getCustomerID() {
-        return CustomerID;
+        return customerID;
     }
 
     public void setCustomerID(int customerID) {
-        CustomerID = customerID;
+        customerID = customerID;
     }
 
     public String getCustomer_name() {

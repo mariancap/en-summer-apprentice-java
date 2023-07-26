@@ -11,7 +11,7 @@ public class TICKET_CATEGORY {
 
 
     @Column ( name = "TicketCategoryID" )
-    private int TicketCategoryID;
+    private int ticketCategoryID;
 
 
     @JoinColumn(name = "event_id", nullable = false)
@@ -28,7 +28,7 @@ public class TICKET_CATEGORY {
     private int price;
 
     public TICKET_CATEGORY(int ticketCategoryID, EVENT event, String ticket_description, int price) {
-        TicketCategoryID = ticketCategoryID;
+        ticketCategoryID = ticketCategoryID;
         this.event = event;
         this.ticket_description = ticket_description;
         this.price = price;
@@ -39,11 +39,11 @@ public class TICKET_CATEGORY {
     }
 
     public int getTicketCategoryID() {
-        return TicketCategoryID;
+        return ticketCategoryID;
     }
 
     public void setTicketCategoryID(int ticketCategoryID) {
-        TicketCategoryID = ticketCategoryID;
+        ticketCategoryID = ticketCategoryID;
     }
 
     public EVENT getEvent() {

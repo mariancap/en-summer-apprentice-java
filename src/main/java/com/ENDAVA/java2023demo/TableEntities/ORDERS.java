@@ -2,6 +2,7 @@ package com.ENDAVA.java2023demo.TableEntities;
 import org.antlr.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -48,6 +49,15 @@ public class ORDERS {
         this.ordered_at = ordered_at;
         this.number_of_tickets = number_of_tickets;
         this.total_price = total_price;
+    }
+
+    public ORDERS(TICKET_CATEGORY ticket_category, CUSTOMER customer, int numberOfTickets, Date ordered_at, int total_price) {
+        this.ticket_category=ticket_category;
+        this.customer=customer;
+        this.number_of_tickets=numberOfTickets;
+        this.ordered_at=ordered_at;
+        this.total_price=total_price;
+
     }
 
     public int getOrderID() {

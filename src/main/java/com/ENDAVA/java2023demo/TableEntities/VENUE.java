@@ -16,7 +16,7 @@ public class VENUE {
 
 
     @Column ( name = "VenueID" )
-    private int VenueID;
+    private int venueID;
 
 
     @Column ( name = "event_location" )
@@ -43,7 +43,7 @@ public class VENUE {
     private List<EVENT> events;
 
     public VENUE(int venueID, String event_location, String venue_type, int capacity) {
-        VenueID = venueID;
+        venueID = venueID;
         this.event_location = event_location;
         this.venue_type = venue_type;
         this.capacity = capacity;
@@ -59,7 +59,7 @@ public class VENUE {
     }
 
     public int getVenueID() {
-        return VenueID;
+        return venueID;
     }
 
     public String getVenue_type() {
@@ -71,7 +71,7 @@ public class VENUE {
     }
 
     public void setVenueID(int venueID) {
-        VenueID = venueID;
+        venueID = venueID;
     }
 
     public void setEvent_location(String event_location) {
@@ -87,6 +87,6 @@ public class VENUE {
     }
 
     public VenueDTO toVenueDTO(){
-        return new VenueDTO(VenueID,venue_type,event_location,capacity);
+        return new VenueDTO(venueID,venue_type,event_location,capacity);
     }
 }

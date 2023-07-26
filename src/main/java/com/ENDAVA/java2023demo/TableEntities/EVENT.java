@@ -14,18 +14,15 @@ public class EVENT {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column ( name = "EventID" )
     private int EventID;
 
     @JoinColumn(name = "venue_id", nullable = false)
     @ManyToOne
-    @JsonBackReference
     private VENUE venue;
 
     @JoinColumn(name = "event_type_id", nullable = false)
     @ManyToOne
-    @JsonBackReference
     private EVENT_TYPE eventType;
 
     @Column ( name = "event_description" )
@@ -40,9 +37,8 @@ public class EVENT {
     @Column ( name = "data_end" )
     private Date data_end;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL,orphanRemoval = true)
-    @JsonManagedReference
-    private List<TICKET_CATEGORY>ticket_categories;
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
+    private List<TICKET_CATEGORY> ticket_categories;
 
     public EVENT(int eventID, VENUE venue, EVENT_TYPE eventType, String event_description, String event_name, Date data_start, Date data_end) {
         EventID = eventID;

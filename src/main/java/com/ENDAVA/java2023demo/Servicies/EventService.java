@@ -5,6 +5,7 @@ import com.ENDAVA.java2023demo.DTOS.EventDTOMapper;
 import com.ENDAVA.java2023demo.Interfaces.IEventService;
 import com.ENDAVA.java2023demo.Repositories.EventRepository;
 import com.ENDAVA.java2023demo.TableEntities.EVENT;
+import com.ENDAVA.java2023demo.TableEntities.VENUE;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class EventService implements IEventService {
 
     private final EventRepository eventRepository;
     private final EventDTOMapper eventDTOMapper;
+
+
 
     public EventService(EventRepository eventRepository, EventDTOMapper eventDTOMapper) {
         this.eventRepository = eventRepository;
@@ -43,6 +46,9 @@ public class EventService implements IEventService {
         return eventRepository.findAll().stream().filter(EVENT ->(EVENT.getVenue().getVenueID() == VenueId && Objects.equals(EVENT.getEventType().getEvent_Type_Name(), eventType))).map(eventDTOMapper).collect(Collectors.toList());
 
     }
+
+
+
 
 
 }

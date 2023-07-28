@@ -47,15 +47,16 @@ public class OrdersService implements IOrdersService {
 
     @Override
     public List<OrdersDTO> getOrders() {
-        int customerId=1;
-        return ordersRepository.findAll().stream().filter(ORDERS->(ORDERS.getCustomer().getCustomerID())==customerId)
-                .map(orders -> new OrdersDTO(
-                        orders.getTicket_category().getEvent().getEventID(),
-                        orders.getOrdered_at(),
-                        orders.getTicket_category().getTicketCategoryID(),
-                        orders.getNumber_of_tickets(),
-                        orders.getTotal_price()
-                )).collect(Collectors.toList());
+        int customerId = 1;
+        List<ORDERS> orders = ordersRepository.findORDERSByOrderID(customerId);
+
+        return orders.stream().map(order -> new OrdersDTO(
+                order.getTicket_category().getEvent().getEventID(),
+                order.getOrdered_at(),
+                order.getTicket_category().getTicketCategoryID(),
+                order.getNumber_of_tickets(),
+                order.getTotal_price()
+        )).collect(Collectors.toList());
     }
 
     @Override

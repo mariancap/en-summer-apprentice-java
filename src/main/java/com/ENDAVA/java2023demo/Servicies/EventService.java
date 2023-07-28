@@ -9,6 +9,7 @@ import com.ENDAVA.java2023demo.TableEntities.VENUE;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -43,7 +44,13 @@ public class EventService implements IEventService {
 
     @Override
     public List<EventDTO> getEventByVenueIdAndEventType(int VenueId,String eventType) {
-        return eventRepository.findAll().stream().filter(EVENT ->(EVENT.getVenue().getVenueID() == VenueId && Objects.equals(EVENT.getEventType().getEvent_Type_Name(), eventType))).map(eventDTOMapper).collect(Collectors.toList());
+        List<EVENT> events=eventRepository.searchByVenueAndType(VenueId,eventType);
+        if(!events.isEmpty())
+        {
+            return events.stream().map(eventDTOMapper).collect(Collectors.toList());
+        }
+
+        return Collections.EMPTY_LIST;
 
     }
 
